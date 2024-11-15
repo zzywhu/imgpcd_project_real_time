@@ -1,0 +1,8 @@
+Panels:
+- Class: rviz/Displays
+  Name: Displays
+  Properties:
+    Displays:
+    - Class: rviz/Image
+      Name: Processed Image
+      Topic: /processed_image

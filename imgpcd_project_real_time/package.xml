@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>imgpcd_project_real_time</name>
+  <version>0.0.1</version>
+  <description>The imgpcd_project_real_time package</description>
+
+  <maintainer email="youremail@example.com">Your Name</maintainer>
+  <license>TODO: License declaration</license>
+
+  <!-- Declare dependencies on other ROS packages -->
+  <depend>roscpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>pcl_ros</depend>
+  <depend>rosbag</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+
+  <!-- Declare dependencies on system libraries -->
+  <build_depend>OpenCV</build_depend>
+  <build_depend>PCL</build_depend>
+  <exec_depend>OpenCV</exec_depend>
+  <exec_depend>PCL</exec_depend>
+
+  <!-- If your package uses catkin, you need this tag -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Export additional information, if needed -->
+  <export>
+    <build_type>catkin</build_type>
+  </export>
+</package>

@@ -1,0 +1,37 @@
+<launch>
+    <!-- 设置节点参数 -->
+    <param name="fx" value="1848.058547" />
+    <param name="fy" value="1847.112001" />
+    <param name="cx" value="1266.409969" />
+    <param name="cy" value="749.832821" />
+    <param name="k1" value="0.03743589" />
+    <param name="k2" value="-0.05156697" />
+    <param name="p1" value="0.00065813" />
+    <param name="p2" value="0.00032850" />
+    <param name="k3" value="0.0" />
+    <param name="ext" value="/media/zzy/T7/ship_c_data/lidar-camera/extrinsic.txt" />
+    <param name="image_folder" value="/media/zzy/T7/ship_c_data/lidar-camera/camera/camera" />
+    <param name="pcd_folder" value="/media/zzy/T7/ship_c_data/lidar-camera/2024-05-15-16-58-27_filter/2024-05-15-16-58-27_filter" />
+
+    <!-- 启动 ImageCloudProcessor 节点 -->
+    <node name="image_cloud_processor" pkg="imgpcd_project_real_time" type="imgpcd_project_real_time" output="screen">
+        <rosparam param="fx">$(arg fx)</rosparam>
+        <rosparam param="fy">$(arg fy)</rosparam>
+        <rosparam param="cx">$(arg cx)</rosparam>
+        <rosparam param="cy">$(arg cy)</rosparam>
+        <rosparam param="k1">$(arg k1)</rosparam>
+        <rosparam param="k2">$(arg k2)</rosparam>
+        <rosparam param="p1">$(arg p1)</rosparam>
+        <rosparam param="p2">$(arg p2)</rosparam>
+        <rosparam param="k3">$(arg k3)</rosparam>
+        <rosparam param="ext">$(arg ext)</rosparam>
+        <rosparam param="image_folder">$(arg image_folder)</rosparam>
+        <rosparam param="pcd_folder">$(arg pcd_folder)</rosparam>
+    </node>
+
+    <!-- 启动 RViz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d rviz_config/processed_image.rviz" output="screen" />
+
+    <!-- 可选：确保 /processed_image 的发布者存在 -->
+    <node name="image_view" pkg="image_view" type="image_view" args="image:=/processed_image" output="screen" />
+</launch>
